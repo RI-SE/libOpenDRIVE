@@ -66,3 +66,21 @@ if(NOT EMSCRIPTEN)
     add_executable(test-xodr test.cpp)
     target_link_libraries(test-xodr OpenDrive)
 endif()
+
+# Install header files
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/include/
+        DESTINATION ${CMAKE_INSTALL_PREFIX}/include/${PROJECT_NAME}
+        FILES_MATCHING
+        PATTERN "*.h"
+        PATTERN "*.hpp"
+)
+# Install third part header files
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/Thirdparty/pugixml/
+        DESTINATION ${CMAKE_INSTALL_PREFIX}/include/pugixml
+        FILES_MATCHING
+        PATTERN "*.h"
+        PATTERN "*.hpp"
+)
+# Install library
+install(TARGETS OpenDrive
+	    LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
