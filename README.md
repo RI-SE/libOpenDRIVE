@@ -40,7 +40,7 @@ To build the library simply run:
 ```bash
 mkdir build && cd build
 cmake ..
-make
+sudo make install
 ```
 
 This also builds an executable to test the library:
